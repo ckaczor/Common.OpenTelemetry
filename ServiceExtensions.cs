@@ -14,6 +14,12 @@ namespace ChrisKaczor.Common.OpenTelemetry;
 public static class ServiceExtensions
 {
     [PublicAPI]
+    public static void AddCommonOpenTelemetry(this IServiceCollection serviceCollection, string serviceName, string telemetryEndpoint)
+    {
+        serviceCollection.AddCommonOpenTelemetry(serviceName, telemetryEndpoint, (IEnumerable<string>) null);
+    }
+
+    [PublicAPI]
     public static void AddCommonOpenTelemetry(this IServiceCollection serviceCollection, string serviceName, string telemetryEndpoint, string activitySourceName)
     {
         serviceCollection.AddCommonOpenTelemetry(serviceName, telemetryEndpoint, new[] { activitySourceName });
@@ -50,9 +56,12 @@ public static class ServiceExtensions
                 o.SetDbStatementForText = true;
             });
 
-            foreach (var activitySourceName in activitySourceNames)
+            if (activitySourceNames != null)
             {
-                tracerProviderBuilder.AddSource(activitySourceName);
+                foreach (var activitySourceName in activitySourceNames)
+                {
+                    tracerProviderBuilder.AddSource(activitySourceName);
+                }
             }
 
             tracerProviderBuilder.SetErrorStatusOnException();
