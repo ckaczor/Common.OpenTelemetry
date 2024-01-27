@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<RootNamespace>ChrisKaczor.Common.OpenTelemetry</RootNamespace>
+		<Title>ChrisKaczor.Common.OpenTelemetry</Title>
+		<Authors>Chris Kaczor</Authors>
+		<Product>ChrisKaczor.Common.OpenTelemetry</Product>
+		<RepositoryUrl>https://github.com/ckaczor/ChrisKaczor.Common.OpenTelemetry</RepositoryUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<Description>Common setup for OpenTelemetry.</Description>
+		<PackageId>ChrisKaczor.Common.OpenTelemetry</PackageId>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+	</PropertyGroup>
+	<ItemGroup>
+	  <None Remove="C:\Users\chris\.nuget\packages\opentelemetry.autoinstrumentation\1.3.0\contentFiles\any\any\instrument.cmd" />
+	  <None Remove="C:\Users\chris\.nuget\packages\opentelemetry.autoinstrumentation\1.3.0\contentFiles\any\any\instrument.sh" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="JetBrains.Annotations" Version="2023.3.0" />
+	  <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.0" />
+	  <PackageReference Include="OpenTelemetry.AutoInstrumentation" Version="1.3.0" />
+	  <PackageReference Include="OpenTelemetry.Exporter.Console" Version="1.7.0" />
+	  <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.7.0" />
+	  <PackageReference Include="OpenTelemetry.Extensions.Hosting" Version="1.7.0" />
+	  <PackageReference Include="OpenTelemetry.Instrumentation.AspNetCore" Version="1.7.0" />
+	  <PackageReference Include="System.Security.Cryptography.Xml" Version="8.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+		<None Update="README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+</Project>
